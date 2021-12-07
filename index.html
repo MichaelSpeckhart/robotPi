@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <title>Bot Controller</title>
+  </head>
+  <body>
+    <script src="jquery-3.6.0.js"></script>
+    <button id="forward" type="button">Forward</button>
+    <button id="backward" type="button">Backward</button>
+    <button id="left" type ="button">Left</button>
+    <button id="right" type ="button">Right</button>
+    <button id="slow" type ="button">Slow</button>
+    <button id="fast" class = "button_css" type="button">Fast</button>
+    <br/>
+    <br/>
+    <textarea id="message">
+    </textarea>
+    <script>
+      $("button").click(function(){
+        $.ajax({url: "http://localhost:8080/" + event.target.id,
+          success: function(result){ $("#message").append(result + "\n")}});
+      });
+    </script>
+
+  </body>
+</html>
+.button_css {
+    background-color:blue;
+    color:red;
+    width: 150px;
+    height:100px;
+}
